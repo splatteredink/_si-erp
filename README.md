@@ -17,5 +17,3 @@ Running Node Locally for Development
 
 Splattered Ink ERP
 >>>>>>> 27f57a69ff4b2297b77260463223ca9fc9d66af4
-
-(my local directory is C:\EasyPHP\www\_si-erp)
