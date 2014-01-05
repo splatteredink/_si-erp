@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  body.login
+  .login-container
+    form(method="post")
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.icon-male
+          input.form-control(type='text', name='full_name', value='', placeholder='Enter your full name', id='signup_full_name')
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.icon-envelope
+          input.form-control(type='text', name='email_address', value='', placeholder='Enter your email address', id='signup_email')
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.icon-lock
+          input.form-control(type='password', name='password', value='', placeholder='Select a password', id='signup_password')
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.icon-lock
+          input.form-control(type='password', name='password_rep', value='', placeholder='Repeat your password', id='sign_password_rep')
+      input.btn.btn-lg.btn-primary.btn-block.login-submit(type='submit', name='submit_signup', value='Sign up', id='sign_up_button')
+      .social-login.clearfix
+        a.btn.btn-primary.pull-left.facebook(href='/')
+          i.icon-facebook
+          | Sign up with facebook
+        a.btn.btn-primary.pull-right.twitter(href='/')
+          i.icon-twitter
+          | Sign up with twitter
+      p
+        | Already have an account?
+      a.btn.btn-default-outline.btn-block(href='/') Login now
+
+include modals/alert
+
+block scripts
+  script(src='/javascripts/jquery.min.js')
+  script(src='/javascripts/bootstrap-modal.js')
+  script(src='/javascripts/bootstrap-transition.js')
+  script(src='/javascripts/jquery.form.js')
+  script(src='/javascripts/form-validators/loginValidator.js')
+  script(src='/javascripts/login.js')
