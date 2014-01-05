@@ -8,10 +8,11 @@ Running Node Locally for Development
 
    * Install [Node.js](http://nodejs.org/)
    * Clone this repo
-   * In command line go enter 'cd C:\(your local directorys)\_si-erp'
-   * `npm install`
-   * `npm start`
-   * Visit `http://127.0.0.1:8900/`
+   * In command line go enter 'cd C:\(your local directorys)\'
+   * `npm install sierp`
+   * `cd sierp`
+   * 'node app.js'
+   * Visit `localhost:3000`
 -----------
 
 Splattered Ink ERP
