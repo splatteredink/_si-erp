@@ -4,5 +4,5 @@
  */
 
 exports.list = function(req, res){
-  res.send("Welcome to sierp.");
+  res.send("respond with a resource");
 };

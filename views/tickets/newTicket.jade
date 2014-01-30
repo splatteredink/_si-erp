@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  body
+    .heading.tabs
+      ul#tabs.nav.nav-tabs.pull-right(data-tabs='tabs')
+        li.active
+          a(data-toggle='tab', href='#tab1')
+            i.icon-comments
+            span Open Ticket
+        li
+          a(data-toggle='tab', href='#tab2')
+            i.icon-user
+            span Close Ticket
+        li
+          a(data-toggle='tab', href='#tab3')
+            i.icon-paper-clip
+            span Attachments
+    input#new_ticket(type='button', name='new_ticket', value='Compose Ticket')
+    #my-tab-content.tab-content.padded
+      #tab1.tab-pane.active
+        h3
+          | Overview
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet auctor purus, non imperdiet sapien dapibus non. Phasellus pretium rutrum elit in cursus. Donec ullamcorper nec massa vel mattis. Curabitur eros metus, dapibus quis est et, dapibus imperdiet dolor.
+      #tab2.tab-pane
+        h3
+          | Profile
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet auctor purus, non imperdiet sapien dapibus non. Phasellus pretium rutrum elit in cursus. Donec ullamcorper nec massa vel mattis. Curabitur eros metus, dapibus quis est et, dapibus imperdiet dolor.
+      #tab3.tab-pane
+        h3
+          | Attachments
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet auctor purus, non imperdiet sapien dapibus non. Phasellus pretium rutrum elit in cursus. Donec ullamcorper nec massa vel mattis. Curabitur eros metus, dapibus quis est et, dapibus imperdiet dolor.
+        
+    include modals/addticket  

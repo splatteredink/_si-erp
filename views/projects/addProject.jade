@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  body.login
+  .login-container
+    form(method='post', id='login_form')
+        .form-group
+          .input-group
+            span.input-group-addon
+              i.icon-envelope
+            input.form-control(type='text', name='project_name', value='', placeholder='Name the project', id='project_name')
+        input.btn.btn-lg.btn-primary.btn-block.login-submit(type='submit', name='add_project', value='Save changes', id='login_button')
+        <a class="btn btn-primary btn" data-toggle="modal" href="#myModal">Bootstrap Modal</a>
+        
+       include modals/test

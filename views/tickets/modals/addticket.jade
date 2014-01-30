@@ -1,0 +1,28 @@
+#new_ticket_modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+        h4.modal-title
+          
+      .modal-body
+        form(method="post", id="ticket_form")
+          .form-group
+              label(for='ticket_full_name') Full Name
+              input.form-control(type='text', name='ticket_full_name', value='', placeholder='Enter your full name', id='tick_full_name')
+          .form-group
+              label(for='ticket_email_address') Email Address
+              input.form-control(type='text', name='ticket_email_address', value='', placeholder='Enter your email address', id='tick_email')
+          .form-group
+              label(for='ticket_type') Help Topic
+              select#ticket_type.form-control(name='ticket_type')
+                option(value='') --Select Ticket Type--
+                option(value='issue') Issue
+                option(value='bug') Bug Reporting
+                option(value='change_request') Change Request
+                option(value='other_problem') Other Problem
+          .form-group
+              label(for='ticket_subject') Subject
+              input.form-control(type='text', name='ticket_subject', value='', placeholder='Enter ticket subject', id='tick_subject')    
+      .modal-footer
+        button.btn.btn-default-outline(data-dismiss='modal', type='button') Close
