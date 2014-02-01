@@ -26,6 +26,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(express.bodyParser());
 app.use(express.cookieParser('keyboard cat'));
 app.use(express.session({ secret: 'super_secret_key', maxAge: 60000 }));
 app.use(passport.initialize());
@@ -101,6 +102,25 @@ app.get('/user/signup', function(req, res){
 	});
 });
 
+app.get('/user/myaccount', ensureLoggedIn('/user/login'), function(req, res){
+	res.render('user/myaccount', {
+		title: 'My Account'
+	});
+});
+
+app.get('/tickets/deleteticket', ensureLoggedIn('/user/login'),function(req, res){
+	deleteTicket(req.user.id, req.query.ticket_id, function(response){
+		if(response == 'success'){
+			res.render('tickets/listTickets', {
+			
+			});
+		}else{
+			res.render('tickets/listTickets', {
+			
+			});
+		}
+	});
+});
 
 app.get('/tickets/listTickets', ensureLoggedIn('/user/login'), function(req, res){
 	getTicketlist(req.user.id, function(ticket_list){
@@ -167,6 +187,10 @@ app.post('/tickets/newTicket', function(req, res){
 });
 
 
+app.post('/user/myaccount', function(req, res){
+	console.log(req.files);
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
@@ -196,7 +220,7 @@ var validatePassword = function(plainPass, hashedPass, callback)
 
 function check_auth_user(username,password,done,public_id){
 	saltAndHash(password, function(hash){
-		var sql="SELECT * FROM sierp_users WHERE (email LIKE '"+ username +"' OR username LIKE '"+ username +"') AND password = '"+hash+"' limit 1";
+		var sql="SELECT * FROM sierp_users WHERE (email LIKE "+connection.escape(username)+" OR username LIKE "+connection.escape(username)+") AND password = '"+hash+"' limit 1";
 		connection.query(sql, function (err,results) {
 
 			if (err) throw err;
@@ -237,4 +261,15 @@ var getTicketlist = function(user_id, callback){
 	});
 }
 
+var deleteTicket = function(user_id, ticket_id, callback){
+	var sql = "DELETE FROM sierp_tickets WHERE user_id='"+user_id+"' AND ticket_id='"+ticket_id+"'";
+	connection.query(sql, function (err,results) {
+		if (err) throw err;
 
+		if(results.affectedRows){
+			return callback("success");
+		}else{
+			return callback("fail");
+		}
+	});
+}

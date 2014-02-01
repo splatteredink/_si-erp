@@ -3,6 +3,11 @@ extends layout
 block content
   body
     .heading.tabs
+      div.col-md-12
+      div.widget-container.fluid-height
+        button#new_ticket.btn.btn-success
+          i.icon-ticket
+          | Compose Ticket
       ul#tabs.nav.nav-tabs.pull-right(data-tabs='tabs')
         li.active
           a(data-toggle='tab', href='#tab1')
@@ -16,7 +21,9 @@ block content
           a(data-toggle='tab', href='#tab3')
             i.icon-paper-clip
             span Attachments
-    input#new_ticket(type='button', name='new_ticket', value='Compose Ticket')
+    
+
+
     #my-tab-content.tab-content.padded
       #tab1.tab-pane.active
         h3

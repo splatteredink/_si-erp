@@ -23,6 +23,73 @@
                 option(value='other_problem') Other Problem
           .form-group
               label(for='ticket_subject') Subject
-              input.form-control(type='text', name='ticket_subject', value='', placeholder='Enter ticket subject', id='tick_subject')    
+              input.form-control(type='text', name='ticket_subject', value='', placeholder='Enter ticket subject', id='tick_subject')
+          .widget-container.fluid-height
+            .heading
+              i.icon-edit
+              | WYSIWYG Editor
+            .widget-content.padded
+              .btn-toolbar.text-editor-toolbar(data-role='editor-toolbar', data-target='#editor')
+                .btn-group
+                  a.btn.btn-default-outline.dropdown-toggle(data-toggle='dropdown', title='Font Size')
+                    i.icon-text-height
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a(data-edit='fontSize 5', href='#') Big
+                    li
+                      a(data-edit='fontSize 3', href='#') Medium
+                    li
+                      a(data-edit='fontSize 2', href='#') Small
+                .btn-group
+                  a.btn.btn-default-outline(data-edit='bold', title='Bold (Ctrl/Cmd+B)')
+                    i.icon-bold
+                  a.btn.btn-default-outline(data-edit='italic', title='Italic (Ctrl/Cmd+I)')
+                    i.icon-italic
+                  a.btn.btn-default-outline(data-edit='strikethrough', title='Strikethrough')
+                    i.icon-strikethrough
+                  a.btn.btn-default-outline(data-edit='underline', title='Underline (Ctrl/Cmd+U)')
+                    i.icon-underline
+                .btn-group
+                  a.btn.btn-default-outline(data-edit='insertunorderedlist', title='Bullet list')
+                    i.icon-list-ul
+                  a.btn.btn-default-outline(data-edit='insertorderedlist', title='Number list')
+                    i.icon-list-ol
+                  a.btn.btn-default-outline(data-edit='outdent', title='Reduce indent (Shift+Tab)')
+                    i.icon-indent-left
+                  a.btn.btn-default-outline(data-edit='indent', title='Indent (Tab)')
+                    i.icon-indent-right
+                .btn-group
+                  a.btn.btn-default-outline(data-edit='justifyleft', title='Align Left (Ctrl/Cmd+L)')
+                    i.icon-align-left
+                  a.btn.btn-default-outline(data-edit='justifycenter', title='Center (Ctrl/Cmd+E)')
+                    i.icon-align-center
+                  a.btn.btn-default-outline(data-edit='justifyright', title='Align Right (Ctrl/Cmd+R)')
+                    i.icon-align-right
+                  a.btn.btn-default-outline(data-edit='justifyfull', title='Justify (Ctrl/Cmd+J)')
+                    i.icon-align-justify
+                .btn-group
+                  a.btn.btn-default-outline.dropdown-toggle.add-link(data-toggle='dropdown', title='Hyperlink')
+                    i.icon-link
+                  .dropdown-menu.input-append
+                    .input-group
+                      input.form-control(data-edit='createLink', placeholder='URL', type='text')
+                      a.input-group-addon Add
+                  a.btn.btn-default-outline(data-edit='unlink', title='Remove Hyperlink')
+                    i.icon-unlink
+                .btn-group
+                  a#pictureBtn.btn.btn-default-outline(title='Insert picture (or just drag & drop)')
+                    i.icon-picture
+                  input(data-edit='insertImage', data-role='magic-overlay', data-target='#pictureBtn', style='opacity: 0; position: absolute; top: 0px; left: 0px; width: 41px; height: 30px; z-index:-1', type='file')
+                .btn-group
+                  a.btn.btn-default-outline(data-edit='undo', title='Undo (Ctrl/Cmd+Z)')
+                    i.icon-undo
+                  a.btn.btn-default-outline(data-edit='redo', title='Redo (Ctrl/Cmd+Y)')
+                    i.icon-repeat
+                .voice-container
+                  input#voiceBtn(data-edit='inserttext', type='text', x-webkit-speech='')
+              #editor
+       
       .modal-footer
+        button.btn.btn-primary(type='submit') Submit
         button.btn.btn-default-outline(data-dismiss='modal', type='button') Close
