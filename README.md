@@ -1,2 +1,2 @@
-# siadmin
+# sierp
 ### a Sails application
