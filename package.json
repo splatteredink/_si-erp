@@ -1,13 +1,25 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
+  "name": "siadmin",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "version": "0.0.0",
+  "description": "a Sails application",
   "dependencies": {
-    "express": "3.4.7",
-    "jade": "*",
-    "stylus": "*"
+    "sails": "0.9.8",
+    "grunt": "0.4.1",
+    "sails-disk": "~0.9.0",
+    "ejs": "0.8.4",
+    "optimist": "0.3.4",
+    "sails-mongo": "~0.9.7"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node debug app.js"
+  },
+  "main": "app.js",
+  "repository": "",
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "grunt-contrib-handlebars": "~0.6.1"
   }
 }

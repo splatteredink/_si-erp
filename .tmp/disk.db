@@ -1,0 +1,35 @@
+{
+  "data": {
+    "user": [
+      {
+        "createdAt": "2014-02-06T14:37:15.269Z",
+        "updatedAt": "2014-02-06T14:37:15.269Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "user": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 1
+    }
+  }
+}
