@@ -1,0 +1,81 @@
+<div class="container-fluid main-content">
+	<div class="page-title">
+		<h1>Ticket List</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<ul class="breadcrumb">
+				<li>
+					<a href="#"></a><i class="icon-home"></i>
+				</li>
+				<li>
+					<a href="#">UI</a>
+				</li>
+				<li class="active">
+					Components
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="widget-container fluid-height clearfix">
+				<div class="widget-content padded clearfix">
+					<table class="table table-bordered table-striped" id="dataTable1">
+						<thead>
+							<th>
+								Name
+							</th>
+							<th>
+								Ticket Subject
+							</th>
+							<th class="hidden-xs">
+								Ticket Topic
+							</th>
+							<th class="hidden-xs">
+								Date Added
+							</th>
+							<th class="hidden-xs">
+								Status
+							</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<% _.each(tickets, function(ticket) { %>
+								<tr>
+									<td>
+										<%= ticket.user_fullname %>
+									</td>
+									<td>
+										<%= ticket.ticket_subject %>
+									</td>
+									<td class="hidden-xs">
+										<%= ticket.ticket_topic %>
+									</td>
+									<td class="hidden-xs">
+										<%= ticket.ticket_registerdate %>
+									</td>
+									<td class="hidden-xs">
+										<span class="label label-success"><%= ticket.ticket_status %></span>
+									</td>
+									<td class="actions">
+										<div class="action-buttons">
+											<a class="table-actions" href="/ticket/showticket/<%= ticket.id %>"><i class="icon-eye-open"></i></a>
+											<a class="table-actions" href="/ticket/editticket/<%= ticket.id %>"><i class="icon-pencil"></i></a>
+											<form action="/user/deleteticket/<%= ticket.id %>" method="POST">
+												<input type="hidden" name="_method" value="delete"/>
+												<input type="submit" class="icon-trash" value="Delete"/>
+												<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+											</form>
+											<!-- <a class="table-actions" href="/ticket/deleteticket/<%= ticket.id %>"><i class="icon-trash"></i></a> -->
+										</div>
+									</td>
+								</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

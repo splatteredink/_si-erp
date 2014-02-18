@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+        For demonstration purposes, the `title` is dynamically set here based on
+        your `sails.config.appName` to show that you can inject data into layouts
+        exactly the same way as with your other view templates.
+    -->
+    <title><%- title %></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!--
+
+      Stylesheets
+      ========================
+
+      You can link any CSS, LESS, or image files in your `assets` directory
+      as you would normally: using <link/> tags.
+      
+    -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/font-awesome.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/se7en-font.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/isotope.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/jquery.fancybox.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/fullcalendar.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/wizard.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/select2.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/morris.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/datatables.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/pygments.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/color/green.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/color/orange.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/color/magenta.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/styles/color/gray.css" media="screen" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" media="screen" />
+
+    <!--
+
+      Support for LESS included by default
+      ================================================
+
+      LESS files are automatically compiled when they change using the Gruntfile
+      located in the top-level of this Sails app.  If you run into issues with styles
+      not reloading, check the Sails log output in your console for LESS compilation errors.
+      If necessary, shut down and then lift your app again.
+      
+    -->
+
+  </head>
+
+  <body>
+    
+    <!-- Include the view file for the current controller/route -->
+   <!-- Navigation -->
+    <div class="navbar navbar-fixed-top scroll-hide">
+      <div class="container-fluid top-bar">
+        <div class="pull-right">
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown notifications hidden-xs">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-flag"></span>
+                <div class="sr-only">
+                  Notifications
+                </div>
+                <p class="counter">
+                  4
+                </p>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">
+                  <div class="notifications label label-info">
+                    New
+                  </div>
+                  New user added: Jane Smith</a>
+                </li>
+                <li><a href="#">
+                  <div class="notifications label label-info">
+                    New
+                  </div>
+                  Sales targets available</a>
+                </li>
+                <li><a href="#">
+                  <div class="notifications label label-info">
+                    New
+                  </div>
+                  New performance metric added</a>
+                </li>
+                <li><a href="#">
+                  <div class="notifications label label-info">
+                    New
+                  </div>
+                  New growth data available</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown messages hidden-xs">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-envelope"></span>
+                <div class="sr-only">
+                  Messages
+                </div>
+                <p class="counter">
+                  3
+                </p>
+              </a>
+              <ul class="dropdown-menu messages">
+                <li><a href="#">
+                  <img width="34" height="34" src="images/avatar-male2.png" />Could we meet today? I wanted...</a>
+                </li>
+                <li><a href="#">
+                  <img width="34" height="34" src="images/avatar-female.png" />Important data needs your analysis...</a>
+                </li>
+                <li><a href="#">
+                  <img width="34" height="34" src="images/avatar-male2.png" />Buy Se7en today, it's a great theme...</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown settings hidden-xs">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-gear"></span>
+                <div class="sr-only">
+                  Settings
+                </div>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="settings-link blue" href="javascript:chooseStyle('none', 30)"><span></span>Blue</a>
+                </li>
+                <li>
+                  <a class="settings-link green" href="javascript:chooseStyle('green-theme', 30)"><span></span>Green</a>
+                </li>
+                <li>
+                  <a class="settings-link orange" href="javascript:chooseStyle('orange-theme', 30)"><span></span>Orange</a>
+                </li>
+                <li>
+                  <a class="settings-link magenta" href="javascript:chooseStyle('magenta-theme', 30)"><span></span>Magenta</a>
+                </li>
+                <li>
+                  <a class="settings-link gray" href="javascript:chooseStyle('gray-theme', 30)"><span></span>Gray</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown user hidden-xs"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <img width="34" height="34" src="images/avatar-male.jpg" />John Smith<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="user/show">
+                  <i class="icon-user"></i>My Account</a>
+                </li>
+                <li><a href="#">
+                  <i class="icon-gear"></i>Account Settings</a>
+                </li>
+                <li><a href="./">
+                  <i class="icon-signout"></i>Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="index.html">se7en</a>
+        <form class="navbar-form form-inline col-lg-2 hidden-xs">
+          <input class="form-control" placeholder="Search" type="text">
+        </form>
+      </div>
+      <div class="container-fluid main-nav clearfix">
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="dashboard">
+              <a href="index.html"><span aria-hidden="true" class="se7en-home"></span>Dashboard</a>
+            </li>
+           <!--  <li class="dashboard"><a href="/ticket">
+              <span aria-hidden="true" class="se7en-feed"></span>Ticket</a>
+            </li> -->
+            <li class="dropdown ui"><a data-toggle="dropdown" class="current" href="#">
+              <span aria-hidden="true" class="se7en-feed"></span>Ticket<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/ticket">Ticket Dashboard</a>
+                </li>
+                <li>
+                  <a href="/ticket/newticket">Compose Ticket</a>
+                </li>
+                <li>
+                  <a href="/ticket/ticketlist">Ticket List</a>
+                </li>
+              </ul>
+            </li>
+           <!--  <li class="forms"><a href="forms.html">
+              <span aria-hidden="true" class="se7en-forms"></span>Forms</a>
+            </li>
+            <li class="tables"><a href="tables.html">
+              <span aria-hidden="true" class="se7en-tables"></span>Tables</a>
+            </li>
+            <li class="pages"><a href="charts.html">
+              <span aria-hidden="true" class="se7en-charts"></span>Charts</a>
+            </li>
+            <li class="dropdown ui"><a data-toggle="dropdown" href="#">
+              <span aria-hidden="true" class="se7en-pages"></span>Pages<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="filters.html">Filter Results</a>
+                </li>
+                <li>
+                  <a href="calendar.html">Calendar</a>
+                </li>
+                <li>
+                  <a href="login.html">Login</a>
+                </li>
+                <li>
+                  <a href="signup.html">Sign Up</a>
+                </li>
+                <li>
+                  <a href="404-page.html">404 Page</a>
+                </li>
+              </ul>
+            </li>
+            <li class="gallery"><a href="gallery.html">
+              <span aria-hidden="true" class="se7en-gallery"></span>Gallery</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Navigation -->  
+
+    <%- body %>
+
+    
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can import any js files in your `assets` directory as you would 
+      normally: using <script></script> tags.
+
+      Here's an example of importing a few dependencies, in order:
+    -->
+    <!-- Bring in the socket.io client -->
+    <script type="text/javascript" src="/js/socket.io.js"></script>
+    <!-- then beef it up with some convenience logic for talking to Sails.js -->
+    <script type="text/javascript" src="/js/sails.io.js"></script>
+    <!-- listen on socket.io for incoming messages -->
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/template/application.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/template/raphael.min.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.vmap.sampledata.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.vmap.world.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.bootstrap.wizard.js"></script>
+    <script type="text/javascript" src="/js/template/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="/js/template/gcal.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.easy-pie-chart.js"></script>
+    <script type="text/javascript" src="/js/template/excanvas.min.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/js/template/masonry.min.js"></script>
+    <script type="text/javascript" src="/js/template/modernizr.custom.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="/js/template/select2.js"></script>
+    <script type="text/javascript" src="/js/template/styleswitcher.js"></script>
+    <script type="text/javascript" src="/js/template/wysiwyg.js"></script>
+    <script type="text/javascript" src="/js/template/morris.min.js"></script>
+    <script type="text/javascript" src="/js/template/skycons.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="/js/template/main.js"></script>
+    <script type="text/javascript" src="/js/template/respond.js"></script>
+    <script type="text/javascript" src="/js/template/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/template/ticket.js"></script>
+    
+    <!-- // <script type="text/javascript" src="/js/template/jquery.form.js"></script>
+    // <script type="text/javascript" src="/js/template/jquery.isotope.min.js"></script>
+    // <script type="text/javascript" src="/js/template/jquery_ujs.js"></script>
+    // <script type="text/javascript" src="/js/template/prettify.js"></script> -->
+    
+    
+    
+    
+    
+    <!-- Your scripts here? -->
+    <!-- Your scripts here? -->
+
+
+    <!--
+
+      Looking for client-side CoffeeScript or TypeScript?
+      ================================================
+
+      CoffeeScript and TypeScript precompilation are not installed by default,
+      but if you'd like to mix those features in, it is straightforward to
+      `npm install` the relevant grunt community modules and modify your Gruntfile
+      to use them.
+
+    -->
+
+
+
+    <!--
+
+      Another way: The Asset Linker
+      ========================
+
+      Sails supports a Grunt-based asset linker, to automatically inject 
+      <link> and <script> tags, as well any client-side templates you're using
+      into your HTML layouts and views, respecting dependencies.
+
+      You created this Sails app with the asset linker disabled.
+      If you change your mind, check out the docs on the subject:
+      http://sailsjs.org/#!documentation/asset-management
+
+    -->
+
+    </body>
+</html>

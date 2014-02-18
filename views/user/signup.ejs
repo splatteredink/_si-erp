@@ -1,0 +1,31 @@
+<form method="post" action="/user/create" name="signup_form" id="signup_form">
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="icon-envelope"></i></span><input class="form-control" name="name" type="text" placeholder="Enter your full name" id="user_name">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="icon-envelope"></i></span><input class="form-control" name="email" type="text" placeholder="Enter your email address" id="singup_useremail">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="icon-lock"></i></span><input class="form-control" type="password" name="password" placeholder="Select a password" id="signup_password">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="icon-lock"></i></span><input class="form-control" type="password" name="user_password1" placeholder="Repeat your password">
+		</div>
+	</div>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	<input type="submit" class="btn btn-lg btn-primary btn-block login-submit" value="Sign up">
+	<div class="social-login clearfix">
+		<a class="btn btn-primary pull-left facebook" href="index.html"><i class="icon-facebook"></i>Sign up with facebook</a><a class="btn btn-primary pull-right twitter" href="index.html"><i class="icon-twitter"></i>Sign up with twitter</a>
+	</div>
+	<p>
+	Already have an account yet?
+	</p>
+	<a class="btn btn-default-outline btn-block" href="/">Login now</a>
+</form>

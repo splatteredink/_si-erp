@@ -1,0 +1,29 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.tickets() %>">tickets</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">New ticket</a></li>
+</ul>
+
+<div class="container-fluid main-content">
+	<div class="page-title">
+	    <h1>New Ticket</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 ">
+			<div class="widget-container fluid-height clearfix">
+				<div class="widget-content padded">
+					<% var form = formFor(ticket, {action: pathTo.tickets(), method: 'POST', id: "ticket-form", class: 'form-horizontal'}) %>
+					<%- form.begin() %>
+					<%- include _form %>
+						<div class="form-actions">
+						    <%- form.submit('<i class="icon-ok icon-white"></i> Create ticket', {class: 'btn btn-primary'}) %> or
+						    <%- linkTo('Cancel', pathTo.tickets(), {class: 'btn'}) %>
+						</div>
+					<%- form.end() %>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
