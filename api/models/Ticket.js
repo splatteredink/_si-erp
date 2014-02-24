@@ -54,7 +54,6 @@ module.exports = {
 	ticket_assigned: {
 		type: 'string'
 	},
-
     
   }
 

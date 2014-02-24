@@ -12,11 +12,32 @@
  */
 
 
-module.exports.policies = {
+ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  '*': "flash"
+  // '*': 'flash',
+  // '*': 'isAuthenticated',
+  // user:{
+  // 	signup: 'flash',
+  // 	create: 'flash',
+  // 	login: 'flash',
+  // }
+  // '*': 'flash',
+  '*': "isAuthenticated",
+
+  UserController: {
+  	'create': true,
+  	'signup':true,
+  },
+
+  AuthController: {
+  	'*': true,
+  },
+
+  TicketController: {
+  	'ticketlist': 'adminRoles',
+  },
 
   /*
 	// Here's an example of adding some policies to a controller

@@ -34,7 +34,6 @@ module.exports.adapters = {
     // Psst.. You can put your password in config/local.js instead
     // so you don't inadvertently push it up if you're using version control
     password: '', 
-    database: 'siadmin',
-    schema : true
+    database: 'siadmin'
   }
 };

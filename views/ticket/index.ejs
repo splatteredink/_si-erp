@@ -38,24 +38,38 @@
 						</li>
 					</ul>
 				</div>
-				<div class="tab-content padded" id="my-tab-content">
-					<div class="tab-pane active" id="tab1">
-						<h3>
-							Overview
-						</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet auctor purus, non imperdiet sapien dapibus non. Phasellus pretium rutrum elit in cursus. Donec ullamcorper nec massa vel mattis. Curabitur eros metus, dapibus quis est et, dapibus imperdiet dolor.
-						</p>
+				<% _.each(mytickets, function(ticket) { %>
+					<div class="tab-content padded" id="my-tab-content">
+						<div class="tab-pane active" id="tab1">
+							<%if (ticket.ticket_status == 'open') { %>
+								<h3>
+									<%= ticket.ticket_subject %>
+								</h3>
+								<p>
+									<%= ticket.ticket_message %>
+								</p>
+							<% }else{ %>	
+								<h3>
+									No Open Tickets
+								</h3>
+							<% } %>
+						</div>
+						<div class="tab-pane" id="tab2">
+							<%if (ticket.ticket_status == 'close') { %>
+								<h3>
+									<%= ticket.ticket_subject %>
+								</h3>
+								<p>
+									<%= ticket.ticket_message %>
+								</p>
+							<% }else{ %>
+								<h3>
+									No Close Tickets
+								</h3>
+							<% } %>
+						</div>
 					</div>
-					<div class="tab-pane" id="tab2">
-						<h3>
-							Profile
-						</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet auctor purus, non imperdiet sapien dapibus non. Phasellus pretium rutrum elit in cursus. Donec ullamcorper nec massa vel mattis. Curabitur eros metus, dapibus quis est et, dapibus imperdiet dolor.
-						</p>
-					</div>
-				</div>
+				<% }) %>
 			</div>
 		</div>
 	</div>

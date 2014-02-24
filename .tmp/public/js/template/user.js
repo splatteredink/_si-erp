@@ -6,12 +6,12 @@ $(document).ready(function(){
   //Login Form Validation
   $('#login_form').validate({ 
     rules: {
-      login_email_address: 'required',
-      login_password: 'required',
+      username: 'required',
+      password: 'required',
     },
     messages: {
-     login_email_address: 'Please enter a valid email address.',
-     login_password: 'Please enter a valid password.',
+     username: 'Please enter a valid email address.',
+     password: 'Please enter a valid password.',
    },
    highlight: function(element) {
     $(element).closest('.form-group').removeClass('has-success').addClass('has-error');

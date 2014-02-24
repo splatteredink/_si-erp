@@ -5,42 +5,55 @@
  * @description :: A short summary of how this model works and what it represents.
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
+ var crypto = require('crypto');
+ 
+ schema: true,
 
-module.exports = {
+ module.exports = {
 
-  attributes: {
-  	
-  	name     : 'string',
-  	
-  	username : {
-  		type: 'string',
-  		required: true
-  	},
+ 	attributes: {
 
-  	email    : {
-		  type: 'email',
-	    required: true
-  	},
+ 		name     : 'string',
 
-    password : {
-    	type: 'string',
-  		required: true	
-    },
-    
-    usertype : 'string',
+ 		username : {
+ 			type: 'string',
+ 			required: true
+ 		},
 
-    block : 'integer',
+ 		email    : {
+ 			type: 'email',
+ 			unique: true,
+ 			required: true
+ 		},
 
-    registerDate : 'datetime',
+ 		encryptedPassword : {
+ 			type: 'string',
+ 		},
 
-    lastvisitDate : 'datetime',
-  },
+ 		usertype : 'string',
 
-  // beforeCreate: function(values, next) {
-  //   var simplecrypt = require("simplecrypt");
-  //   var sc = simplecrypt();
-  //   var encryptedpassword = sc.encrypt(values.password);
-  //   values.password = encryptedpassword;
-  //   next();
-  // }
-};
+ 		block : 'integer',
+
+ 		registerDate : 'datetime',
+
+ 		lastvisitDate : 'datetime',
+
+ 	},
+
+ 	toJSON: function() {
+ 		var obj = this.toObject();
+ 		delete obj.password;
+ 		delete obj.user_password1;
+ 		delete obj.encryptedPassword;
+ 		delete obj._csrf;
+ 		return obj;
+ 	},
+
+ 	beforeCreate: function(values, next) {
+ 		var password = values.password;
+ 		var hash = crypto.createHash('md5').update(password).digest('hex');
+ 		values.encryptedPassword = hash;
+ 		next();
+ 	}
+
+ };
